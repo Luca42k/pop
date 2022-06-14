@@ -431,7 +431,7 @@ char* changeBuffer(char* str, char* oldstr, char* newstr)
 }
 
 
-// 显示邮件内容，接收邮件后对正文进行base64解码，并替换原有的密文
+// Display the contents of the email, decode(Base64) the body after receiving the email, and replace the original ciphertext
 int displayDetail()
 {
     int opt = 0;
@@ -467,9 +467,7 @@ int displayDetail()
         char* content = getContent(buffer1);
         if(content != NULL)
         {
-            // printf("content: %s\n", content);
             char* text = base64_decode(content);
-            // printf("text: %s\n", text);
             char* buffer2 = changeBuffer(buffer, content, text);
             printf("%s", buffer2);
         }
@@ -478,7 +476,6 @@ int displayDetail()
             printf("%s", buffer);
         }
 
-        // printf("%s", buffer);
         if(strstr(buffer, ".\r\n") != NULL)
         {
             break;
@@ -516,7 +513,7 @@ int searchMails()
 }
 
 
-// 遍历本地目录下的邮件，匹配邮件解码后的内容和text
+// Traverse the mail in local and match the decoded content and the text 
 int searchMailText(char* text)
 {
     char path[BUFFERSIZE];
@@ -571,7 +568,6 @@ int searchMailText(char* text)
         }
         free(name_list[index++]);
     }
-    // printf("count %d\n", count);
     free(name_list);
     return count;
 }
