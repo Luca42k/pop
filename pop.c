@@ -33,7 +33,7 @@ void hidePassword(char *password)
         }
         else if(password[i] == 127) //delete
         {
-            printf("\b \b");  //\b¹â±êÏò×óÒÆ¶¯ backspace clear code
+            printf("\b \b");  //\bï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½ backspace clear code
             password[i]='\0';
             i-=1;
             continue;
@@ -882,3 +882,5 @@ int main(int argc, char* argv[])
     close(info.sock);
     return 0;
 }
+
+//è¿™æ˜¯æœ€åä¸€è¡Œ
