@@ -1,50 +1,46 @@
-#include <stdio.h>
-#include <dirent.h>
-#include <stdlib.h>
-#include <netdb.h> 
-#include <sys/socket.h>
-#include <string.h>
-#include <unistd.h>
+#include <stdio.h>  /* for printf() and getchar() */
+#include <sys/socket.h>  /* for socket(), send() and recv() */
+#include <stdlib.h>  /* for atoi() and exit() */
+#include <string.h>  /* for memset() */
+#include <unistd.h>  /* for close() */
+#include <dirent.h>  /* for opendir(), readdir(), closedir() */
+#include <netdb.h> /* for adddr search */
 
-
-
-// test
-struct connect_info
+// define structure
+struct user_info
 {
-    char pop3_domain[256];
-    char pop3_username[256];
-    char pop3_password[256];
-    int  pop3_port;
-    int  sock;
-} info;
-#define BUFFERSIZE 4096
+    char domain[300];
+    char username[300];
+    char password[300];
+} user;
+#define BUFFSIZE 5000
 
-// 闅愯棌瀵嗙爜
-void getPassword(char *pass)
+// implicit code
+void hidePassword(char *password)
 {
-    getchar();
+    getchar(); //get a character from the buffer
+    //system("stty -icanon"); //not enter to read immediately
+    //system("stty -echo"); //prohibit back display
     int i=0;
-    system("stty -icanon");
-    system("stty -echo");
-    while(i < 55)
+    while(i < 20)
     {
-        pass[i]=getchar();
-        if(i == 0 && pass[i] == 127)
+        password[i]=getchar();
+        if(i == 0 && password[i] == 127) //delete
         {
             i=0;
-            pass[i]='\0';
-            continue;
+            password[i]='\0'; //push return
+            continue; //finish this circulation
         }
-        else if(pass[i] == 127)
+        else if(password[i] == 127) //delete
         {
-            printf("\b \b");
-            pass[i]='\0';
+            printf("\b \b");  //\b光标向左移动 backspace clear code
+            password[i]='\0';
             i-=1;
             continue;
         }
-        else if(pass[i] == '\n')
+        else if(password[i] == '\n')
         {
-            pass[i]='\0';
+            password[i]='\0'; //finish input
             break;
         }
         else
