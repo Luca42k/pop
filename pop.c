@@ -33,7 +33,7 @@ void hidePassword(char *password)
         }
         else if(password[i] == 127) //delete
         {
-            printf("\b \b");  //\b光标向左移动 backspace clear code
+            printf("\b \b");  //\b：Cursor moves to the left backspace clear code
             password[i]='\0';
             i-=1;
             continue;
@@ -53,7 +53,7 @@ void hidePassword(char *password)
     system("stty icanon");
 }
 
-// 杈撳叆淇℃伅
+// login
 void loginInit()
 {
     memset(&info, 0, sizeof(info));
