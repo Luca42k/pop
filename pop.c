@@ -34,7 +34,7 @@ void hidePassword(char *password)
         else if(password[i] == 127) //delete
         {
 <<<<<<< HEAD
-            printf("\b \b");  //\b£ºCursor moves to the left backspace clear code
+            printf("\b \b");  //\bï¿½ï¿½Cursor moves to the left backspace clear code
 =======
             printf("\b \b");  //\bï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½ backspace clear code
 >>>>>>> a5a142e5113447ab6d859d12187d9e3f07448388
@@ -72,7 +72,7 @@ void loginInit()
     scanf("%s", info.pop3_username);
 
     printf("Please input password:\n");
-    printf(">>Enter password: ");
+    printf(">>");
     getPassword(info.pop3_password);
 }
 
@@ -293,7 +293,6 @@ char* getContentPlain(char* buffer)
     {
         return NULL;
     }
-    // printf("buffer: %s\n", buffer);
 
     char* str1 = "X-Coremail-Antispam";
     char* str2 = "\r\n";
@@ -308,11 +307,9 @@ char* getContentPlain(char* buffer)
         return NULL;
     }
 
-    //printf("bufferX: %s\n", bufferX);
 
     strtok(bufferX, str2);
     char* content = strtok(NULL, str2);
-    //printf("content: %s\n", content);
     return content;
 }
 
