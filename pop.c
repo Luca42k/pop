@@ -281,7 +281,7 @@ int getStatus()
 }
 
 
-// 获取纯文本邮件正文
+// Get plain text message body
 char* getContentPlain(char* buffer)
 {
     char* str = "Content-Transfer-Encoding: base64";
@@ -313,7 +313,7 @@ char* getContentPlain(char* buffer)
 }
 
 
-// 获取超文本邮件的正文
+// Get the body of a hypertext message
 char* getContentMultipart(char* buffer)
 {
     char* str = "Content-Transfer-Encoding: base64";
@@ -342,7 +342,7 @@ char* getContentMultipart(char* buffer)
 }
 
 
-// 解析邮件的正文
+// Analysis message body
 char* getContent(char* buffer)
 {
     char* str = "Content-Type: multipart/alternative";
@@ -368,7 +368,7 @@ int num_strchr(const char *str, char c)
 }
 
 
-// base64解码
+// base64 decoding
 char* base64_decode(char* base64)
 {
     const char * base64char = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
@@ -377,7 +377,7 @@ char* base64_decode(char* base64)
     int i = 0, j=0;
     int trans[4] = {0,0,0,0};
 
-    for (;base64[i]!='\0';i+=4) { // 每四个一组，译码成三个字符
+    for (;base64[i]!='\0';i+=4) { // Each group of four is decoded into three characters
 
         trans[0] = num_strchr(base64char, base64[i]);
         trans[1] = num_strchr(base64char, base64[i+1]);
