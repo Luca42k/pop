@@ -33,7 +33,11 @@ void hidePassword(char *password)
         }
         else if(password[i] == 127) //delete
         {
+<<<<<<< HEAD
             printf("\b \b");  //\b��Cursor moves to the left backspace clear code
+=======
+            printf("\b \b");  //\b��������ƶ� backspace clear code
+>>>>>>> a5a142e5113447ab6d859d12187d9e3f07448388
             password[i]='\0';
             i-=1;
             continue;
@@ -882,3 +886,5 @@ int main(int argc, char* argv[])
     close(info.sock);
     return 0;
 }
+
+//这是最后一行
