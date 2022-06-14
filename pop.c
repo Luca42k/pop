@@ -2,14 +2,14 @@
 #include <stdio.h>
 #include <dirent.h>
 #include <stdlib.h>
-#include <netdb.h>
+#include <netdb.h> 
 #include <sys/socket.h>
 #include <string.h>
 #include <unistd.h>
 
 
 
-// 登陆信息结构体
+// 登陆信息结构体 test
 struct connect_info
 {
     char pop3_domain[256];
