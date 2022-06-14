@@ -8,7 +8,7 @@
 
 
 
-// 登陆信息结构体 test
+// test
 struct connect_info
 {
     char pop3_domain[256];
